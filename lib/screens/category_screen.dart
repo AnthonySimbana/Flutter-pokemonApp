@@ -41,6 +41,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
         actions: [
           IconButton(
             onPressed: () {
+              Provider.of<CategoryProvider>(context, listen: false)
+                  .initializeCategories();
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+          IconButton(
+            onPressed: () {
               Provider.of<CategoryProvider>(context, listen: false).clearList();
             },
             icon: const Icon(Icons.delete),

@@ -4,6 +4,7 @@ class CategoryField {
   static const String id = "_id";
   static const String name = "name";
   static const String image = 'image';
+  static const String json = "json";
 }
 
 class CategoryModel {
@@ -19,8 +20,8 @@ class CategoryModel {
       json[CategoryField.image] as String);
 
   Map<String, Object?> toJson() => {
-    CategoryField.id: id,
-    CategoryField.name: name,
-    CategoryField.image: image
-  }
+        CategoryField.id: id,
+        CategoryField.name: name,
+        CategoryField.image: image
+      };
 }
