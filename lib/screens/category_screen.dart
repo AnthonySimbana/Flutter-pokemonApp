@@ -24,6 +24,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return sharedPrefs.getString("last_sync");
   }
 
+  int? getStringLength(String? str) {
+    return str?.length;
+  }
+
   @override
   void initState() {
     getLastSyncDate().then((value) => {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:pokedex_mobile/providers/category_provider.dart';
+import 'package:pokedex_mobile/providers/pokemon_provider.dart';
 import 'package:provider/provider.dart';
 
 class CategoryListWidget extends StatefulWidget {
@@ -11,6 +12,12 @@ class CategoryListWidget extends StatefulWidget {
 }
 
 class _CategoryListWidgetState extends State<CategoryListWidget> {
+  @override
+  void initState() {
+    Provider.of<PokemonProvider>(context, listen: false).initPokemonList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<CategoryProvider>(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_mobile/providers/category_provider.dart';
+import 'package:pokedex_mobile/providers/pokemon_provider.dart';
 import 'package:provider/provider.dart';
 import 'screens/category_screen.dart';
 
@@ -15,9 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: ChangeNotifierProvider(
-          create: (context) => CategoryProvider(),
-          child: const CategoryScreen()),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => CategoryProvider()),
+          ChangeNotifierProvider(create: (context) => PokemonProvider()),
+        ],
+        child: const CategoryScreen(),
+      ),
     );
   }
 }
