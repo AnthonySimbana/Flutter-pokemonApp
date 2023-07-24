@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_mobile/providers/category_provider.dart';
 import 'package:pokedex_mobile/providers/pokemon_provider.dart';
+import 'package:pokedex_mobile/screens/pokemon_screen.dart';
 import 'package:provider/provider.dart';
 import 'screens/category_screen.dart';
 
@@ -14,14 +15,62 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: MultiProvider(
+    return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => CategoryProvider()),
           ChangeNotifierProvider(create: (context) => PokemonProvider()),
         ],
-        child: const CategoryScreen(),
+        child: MaterialApp(
+          title: 'Pokedex',
+          //home: new MainWidget(),
+          initialRoute: MainWidget.routeName,
+          routes: {
+            MainWidget.routeName: (context) => const MainWidget(),
+          },
+        ));
+  }
+}
+
+class MainWidget extends StatefulWidget {
+  static const routeName = '/';
+
+  const MainWidget({super.key});
+
+  @override
+  State<MainWidget> createState() => _MainWidgetState();
+}
+
+class _MainWidgetState extends State<MainWidget> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _mainWidgets = const [
+    CategoryScreen(),
+    PokemonScreenWidget()
+  ];
+
+  void _onTapItem(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _mainWidgets[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Categorias',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.details),
+            label: 'Pokemons',
+          )
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onTapItem,
       ),
     );
   }
