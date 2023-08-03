@@ -1,11 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_mobile/providers/category_provider.dart';
 import 'package:pokedex_mobile/providers/pokemon_provider.dart';
+import 'package:pokedex_mobile/screens/pokemon_details.dart';
 import 'package:pokedex_mobile/screens/pokemon_screen.dart';
 import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 import 'screens/category_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); //Para inicializar instancias primero como firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -26,6 +34,8 @@ class MyApp extends StatelessWidget {
           initialRoute: MainWidget.routeName,
           routes: {
             MainWidget.routeName: (context) => const MainWidget(),
+            PokemonDetailsScreen.routeName: (context) =>
+                const PokemonDetailsScreen()
           },
         ));
   }

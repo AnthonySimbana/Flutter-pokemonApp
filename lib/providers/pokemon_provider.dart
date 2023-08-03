@@ -1,6 +1,7 @@
 import 'dart:collection';
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:pokedex_mobile/dtos/pokemon_model.dart';
@@ -12,6 +13,25 @@ class PokemonProvider extends ChangeNotifier {
 
   UnmodifiableListView<Pokemon> get pokemons => UnmodifiableListView(_pokemon);
 
+  Pokemon getPokemon(int id) {
+    return _pokemon.firstWhere((element) => element.id == id);
+  }
+
+  //Actualiza y agrega el valor de favorito a un pokemon
+  Future<void> updatePokemonFavoriteStatus(int id, bool value) async {
+    var db = FirebaseFirestore.instance;
+    await db.collection('pokemons').doc(id.toString()).update({
+      'isFavorite': value
+    }); //Se demora en actualizar por eso await-> async -> Future
+  }
+
+  //ESTO NO SIRVE, NO ES UN CANAL BIDIRECCIONAL
+/*
+  Furute<bool> getPokemonDocument(int id) async {
+    var db = FirebaseFirestore.instance;
+    return await db.collection('pokemon').doc(id.toString()).get();
+  }
+*/
   Future<bool> checkPokemons() async {
     if (_pokemon.isEmpty) {
       await _initPokemonList();
@@ -52,5 +72,36 @@ class PokemonProvider extends ChangeNotifier {
         imageUrl: pokemonData['sprites']['front_default']);
     */
     _pokemon.add(Pokemon.fromJson(pokemonData));
+
+    final pokemonDocument = <String, dynamic>{
+      //'id': pokemonData['id'],
+      'name': pokemonData['name']
+    };
+    /**
+     Furure:
+      - let value = await future();
+      - future().then (
+        (value) => {}
+      )
+     */
+    var db = FirebaseFirestore.instance;
+
+    /* 
+    
+    Crea la base de datos con documentos autogenerados
+      db
+        .collection("pokemons")
+        .add(pokemonDocument)
+        .then((value) => print('succces'));
+    */
+
+    //Crea la base de datos donde el ID ya no es autogenerado, y si encuentra reemplaza su informacion si no encuentra más,
+    //pasa un marge y actualiza/añade info
+    var setOptions = SetOptions(merge: true);
+    db
+        .collection("pokemons")
+        .doc(pokemonData['id'].toString())
+        .set(pokemonDocument, setOptions) //
+        .then((value) => print("Success"));
   }
 }
