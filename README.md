@@ -1,4 +1,4 @@
-# pokedex_mobile
+# Pokemon App Mobile
 
 A new Flutter project.
 
