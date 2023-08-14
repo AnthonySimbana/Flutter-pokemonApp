@@ -75,7 +75,9 @@ class PokemonProvider extends ChangeNotifier {
 
     final pokemonDocument = <String, dynamic>{
       //'id': pokemonData['id'],
-      'name': pokemonData['name']
+      'name': pokemonData['name'],
+      'id': pokemonData['id'],
+      'imageUrl': pokemonData['sprites']['front_default']
     };
     /**
      Furure:
