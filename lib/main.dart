@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_mobile/providers/category_provider.dart';
 import 'package:pokedex_mobile/providers/pokemon_provider.dart';
 import 'package:pokedex_mobile/screens/pokemon_details.dart';
+import 'package:pokedex_mobile/screens/pokemon_favorite_list.dart';
 import 'package:pokedex_mobile/screens/pokemon_screen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -50,12 +51,14 @@ class MainWidget extends StatefulWidget {
   State<MainWidget> createState() => _MainWidgetState();
 }
 
+//Aqui se definen las pantallas existentes
 class _MainWidgetState extends State<MainWidget> {
   int _selectedIndex = 0;
 
   final List<Widget> _mainWidgets = const [
     CategoryScreen(),
-    PokemonScreenWidget()
+    PokemonScreenWidget(),
+    PokemonFavoriteListScreen()
   ];
 
   void _onTapItem(int index) {
@@ -64,6 +67,7 @@ class _MainWidgetState extends State<MainWidget> {
     });
   }
 
+  //Esto controa la barra de navegacion inferior, en orden de los elemntos se va creando los iconos para navegar entre pantallas
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +81,10 @@ class _MainWidgetState extends State<MainWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.details),
             label: 'Pokemons',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            label: 'Favoritos',
           )
         ],
         currentIndex: _selectedIndex,
