@@ -37,12 +37,12 @@ class _PokemonFavoriteState extends State<PokemonFavorite> {
   Widget renderFavoriteIcon(bool state) {
     if (state) {
       return IconButton(
-        onPressed: _markFavoriteStatus(widget.id, false),
+        onPressed: () => _markFavoriteStatus(widget.id, false),
         icon: const Icon(Icons.favorite),
       );
     } else {
       return IconButton(
-        onPressed: _markFavoriteStatus(widget.id, true),
+        onPressed: () => _markFavoriteStatus(widget.id, true),
         icon: const Icon(Icons.favorite_border),
       );
     }
@@ -71,7 +71,7 @@ class _PokemonFavoriteState extends State<PokemonFavorite> {
             print('state error');
           }
 
-          return const Icon(Icons.favorite_border);
+          return renderFavoriteIcon(flagFavorite);
         });
 
     /*
