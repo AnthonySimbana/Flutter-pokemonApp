@@ -59,6 +59,17 @@ class PokemonProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+//Metodo que permite agregar comentario a a base de datos en FireStore
+  void addCommentToPokemonDoc(int id, String comment) {
+    var db = FirebaseFirestore.instance;
+    final commentObj = <String, dynamic>{'comment': comment};
+    var setOptions = SetOptions(merge: true);
+    db.collection('pokemons').doc(id.toString()).set(
+          commentObj,
+          setOptions,
+        );
+  }
+
   Future<void> addPokemonList(String url) async {
     var client = http.Client();
     var response = await client.get(Uri.parse(url));
