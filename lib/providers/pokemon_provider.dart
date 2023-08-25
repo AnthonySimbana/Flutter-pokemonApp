@@ -7,7 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:pokedex_mobile/dtos/pokemon_model.dart';
 
 class PokemonProvider extends ChangeNotifier {
-  final List<Pokemon> _pokemon = [];
+  final List<Pokemon> _originalPokemons = [];
+  List<Pokemon> _pokemon = [];
 
   int get totalPokemons => _pokemon.length;
 
@@ -15,6 +16,18 @@ class PokemonProvider extends ChangeNotifier {
 
   Pokemon getPokemon(int id) {
     return _pokemon.firstWhere((element) => element.id == id);
+  }
+
+  void clearSearch() {
+    _pokemon = [..._originalPokemons];
+    notifyListeners();
+  }
+
+  void searchPokemonsByName(String name) {
+    _pokemon = _originalPokemons
+        .where((element) => element.name.contains(name))
+        .toList();
+    notifyListeners();
   }
 
   //Actualiza y agrega el valor de favorito a un pokemon
@@ -82,7 +95,9 @@ class PokemonProvider extends ChangeNotifier {
         name: pokemonData['name'],
         imageUrl: pokemonData['sprites']['front_default']);
     */
-    _pokemon.add(Pokemon.fromJson(pokemonData));
+    _pokemon.add(Pokemon.fromJson(
+        pokemonData)); //Agrega ele,emntp en arreglo de pokemons
+    _originalPokemons.add(Pokemon.fromJson(pokemonData));
 
     final pokemonDocument = <String, dynamic>{
       //'id': pokemonData['id'],
