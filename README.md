@@ -16,11 +16,11 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 - Implementation of:
-- Sign In
-  <span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SingIn.png</span><span>)</span>
-  
-- Sign Up
-  <span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignUp.png</span><span>)</span>
-  
-- RessetPassword
-  <span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/RessetPassword.png</span><span>)</span>
+## Sign In
+![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignIn.png)
+
+## Sign Up
+![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignUp.png)
+
+## Reset Password
+![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/ResetPassword.png)
