@@ -17,16 +17,10 @@ samples, guidance on mobile development, and a full API reference.
 
 - Implementation of:
 ## Sign In
+![SingIn](https://github.com/AnthonySimbana/Flutter-pokemonApp/assets/90488409/f43ce7d2-9c28-4599-8617-5768ef889ff7)
 
-![Sign In](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignIn.png)
+##Sign Up
+![SignUp](https://github.com/AnthonySimbana/Flutter-pokemonApp/assets/90488409/596f7e53-002e-4ab7-9a88-71cfcd4b59ef)
 
-
-## Sign Up
-
-![Sign Up](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignUp.png)
-
-
-## Reset Password
-
-![Reset Password](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/ResetPassword.png)
-
+##RessetPassword
+![RessetPassword](https://github.com/AnthonySimbana/Flutter-pokemonApp/assets/90488409/2b5e180a-9fba-4598-ba15-75f5c249814b)
