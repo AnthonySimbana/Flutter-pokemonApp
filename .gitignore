@@ -10,6 +10,9 @@
 .svn/
 migrate_working_dir/
 
+#VisualCode configuration
+.vscode
+
 # IntelliJ related
 *.iml
 *.ipr
