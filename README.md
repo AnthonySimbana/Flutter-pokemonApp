@@ -27,3 +27,5 @@ samples, guidance on mobile development, and a full API reference.
 
 ## RessetPassword
 ![RessetPassword](https://github.com/AnthonySimbana/Flutter-pokemonApp/assets/90488409/2b5e180a-9fba-4598-ba15-75f5c249814b)
+
+Thanks to https://github.com/Richa0305 for the code and explication video about the use of FireBase Auth with flutter
