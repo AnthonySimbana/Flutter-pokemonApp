@@ -76,9 +76,8 @@ class _SignInScreenState extends State<SignInScreen> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              hexStringToColor("CB2B93"),
-              hexStringToColor("9546C4"),
-              hexStringToColor("5E61F4"),
+              hexStringToColor("0ab4e4"),
+              hexStringToColor("130d90"),
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -94,10 +93,17 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             child: Column(
               children: <Widget>[
-                logoWidget("assets/images/logo1.png"),
+                //logoWidget("assets/images/logo1.png"),
+                const Text(
+                  "My app movil",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
                 const SizedBox(height: 30),
                 reusableTextField(
-                  "usuario@ejemplo.com",
+                  "correo@ejemplo.com",
                   Icons.person_outline,
                   false,
                   _emailTextController,
@@ -111,7 +117,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 const SizedBox(height: 5),
                 forgetPassword(context),
-                firebaseUIButton(context, "Sign In", _signIn),
+                firebaseUIButton(context, "Ingresar", _signIn),
                 signUpOption(),
               ],
             ),
@@ -135,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
             );
           },
           child: const Text(
-            " Sign Up",
+            " Regístrate",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
@@ -151,7 +157,10 @@ class _SignInScreenState extends State<SignInScreen> {
       child: TextButton(
         child: const Text(
           "¿Olvidaste tu contraseña?",
-          style: TextStyle(color: Colors.white70),
+          style: TextStyle(
+            color: Colors.white70,
+            decoration: TextDecoration.underline,
+          ),
           textAlign: TextAlign.right,
         ),
         onPressed: () => Navigator.push(
