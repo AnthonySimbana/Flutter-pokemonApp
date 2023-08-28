@@ -1,4 +1,4 @@
-# Pokemon App Mobile
+  # Pokemon App Mobile
 
 A new Flutter project.
 
@@ -17,10 +17,10 @@ samples, guidance on mobile development, and a full API reference.
 
 - Implementation of:
 ## Sign In
-![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignIn.png)
+![Sign In](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignIn.png)
 
 ## Sign Up
-![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignUp.png)
+![Sign Up](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/SignUp.png)
 
 ## Reset Password
-![Descripción de la imagen](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/ResetPassword.png)
+![Reset Password](https://github.com/AnthonySimbana/Flutter-pokemonApp/blob/main/assets/images/ResetPassword.png)
