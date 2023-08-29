@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/category_screen.dart';
 import '../screens/pokemon_favorite_list.dart';
 import '../screens/pokemon_screen.dart';
+import '../screens/signin_screen.dart';
 
 class MainWidget extends StatefulWidget {
   static const routeName = '/';
