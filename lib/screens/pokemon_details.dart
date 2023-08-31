@@ -7,6 +7,7 @@ import '../widgets/input_comment.dart';
 
 class PokemonDetailsScreen extends StatelessWidget {
   static const routeName = '/pokemon-details';
+  //final String pokemonId;
 
   const PokemonDetailsScreen({super.key});
 
