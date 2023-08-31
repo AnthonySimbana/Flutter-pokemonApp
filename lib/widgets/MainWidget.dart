@@ -6,7 +6,7 @@ import '../screens/pokemon_screen.dart';
 import '../screens/signin_screen.dart';
 
 class MainWidget extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/main';
 
   const MainWidget({super.key});
 
@@ -17,7 +17,7 @@ class MainWidget extends StatefulWidget {
 //Aqui se definen las pantallas existentes
 class _MainWidgetState extends State<MainWidget> {
   int _selectedIndex = 0;
-  bool _isUserAuthenticated = false; // Agrega esta variable
+  //bool _isUserAuthenticated = false; // Agrega esta variable
 
   final List<Widget> _mainWidgets = const [
     CategoryScreen(),

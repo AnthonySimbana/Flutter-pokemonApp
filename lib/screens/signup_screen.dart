@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pokedex_mobile/widgets/reusable_widget.dart';
-import 'package:pokedex_mobile/widgets/MainWidget.dart';
+import 'package:pokedex_mobile/widgets/mainWidget.dart';
 import 'package:pokedex_mobile/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 

@@ -2,7 +2,7 @@ import 'dart:html';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pokedex_mobile/widgets/reusable_widget.dart';
-import 'package:pokedex_mobile/widgets/MainWidget.dart';
+import 'package:pokedex_mobile/widgets/mainWidget.dart';
 import 'package:pokedex_mobile/screens/reset_password.dart';
 import 'package:pokedex_mobile/screens/signup_screen.dart';
 import 'package:pokedex_mobile/utils/color_utils.dart';
@@ -45,6 +45,20 @@ class _SignInScreenState extends State<SignInScreen> {
       return;
     }
 
+    /* try {
+      final UserCredential userCredential =
+          await _auth.signInWithEmailAndPassword(
+        email: _emailTextController.text,
+        password: _passwordTextController.text,
+      );
+
+      // Navegar a la pantalla principal después del inicio de sesión exitosoç
+      Navigator.pushReplacementNamed(context, MainWidget.routeName);
+    } catch (error) {
+      // Mostrar un mensaje de error al usuario (puedes personalizar el mensaje según el tipo de error)
+      print("Error de inicio de sesión: ${error.toString()}");
+    }
+    */
     try {
       final UserCredential userCredential =
           await _auth.signInWithEmailAndPassword(
@@ -53,7 +67,10 @@ class _SignInScreenState extends State<SignInScreen> {
       );
 
       // Navegar a la pantalla principal después del inicio de sesión exitoso
-      Navigator.pushReplacementNamed(context, MainWidget.routeName);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MainWidget()),
+      );
     } catch (error) {
       // Mostrar un mensaje de error al usuario (puedes personalizar el mensaje según el tipo de error)
       print("Error de inicio de sesión: ${error.toString()}");
